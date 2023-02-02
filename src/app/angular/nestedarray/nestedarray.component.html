@@ -1,0 +1,20 @@
+<form [formGroup]="profileForm">
+    <div>
+        <h5>Name</h5>
+    <label for = "Firstname">FirstName:</label>
+<input type ="text" formControlName="Firstname">
+<label for = "Lastname">Lastname:</label>
+<input type ="text" formControlName="Lastname">
+</div>
+<div formGroupName="Address">
+    <h5>Address</h5>
+    <label for = "DoorNo">DoorNo:</label>
+    <input type ="text" formControlName="DoorNo">
+    <label for = "StreetName">StreetName:</label>
+    <input type ="text" formControlName="StreetName">
+    <label for = "PinCode">PinCode:</label>
+    <input type ="text" formControlName="PinCode">
+</div>
+<button type="submit" (click)="submit()">Submit</button>
+<button type="submit"(click)="updateProfile()">Update</button>
+</form>

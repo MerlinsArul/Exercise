@@ -1,12 +1,13 @@
-<form [formGroup]="employeeForm" (ngSubmit)="submit()">
+<form [formGroup]="employeeForm" >
     FirstName:<input type="text" formControlName="firstname"><br />
     LastName:<input type="text" formControlName="lastname"><br />
     EmailId :<input type="text" formControlName="email"><br />
     <div formArrayName="skills">
-        <ng-container *ngFor="let skill of employeeForm.get('skills')['controls'],index as i">
+        <div *ngFor="let skill of employeeForm.get('skills')['controls'],index as i">
             Skills:<input type="text" formControlName="{{i}}">
-        </ng-container>
-        <button (click)="addSkill()">AddSkill</button>
+            <button (click)="remove(i)">Remove</button><br>
+        </div><br>
+    <button (click)="addSkill()">AddSkill</button>
     </div><br>
-    <input type="submit" value="Submit">
+    <input type="submit"(click)="submit()" value="Submit">
 </form>

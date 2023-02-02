@@ -8,6 +8,8 @@ import { DidecoComponent } from './dideco/dideco.component';
 import { ChildComponent } from './dideco/child/child.component';
 import { ParentComponent } from './dideco/parent/parent.component';
 import { ContentComponent } from './dideco/content/content.component';
+import { NestedarrayComponent } from './nestedarray/nestedarray.component';
+import { OperatorsComponent } from './operators/operators.component';
 
 
 
@@ -19,6 +21,8 @@ import { ContentComponent } from './dideco/content/content.component';
     ChildComponent,
     ParentComponent,
     ContentComponent,
+    NestedarrayComponent,
+    OperatorsComponent,
    
   
 

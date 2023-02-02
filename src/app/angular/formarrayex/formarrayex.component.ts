@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { retry } from 'rxjs';
 
 @Component({
   selector: 'app-formarrayex',
@@ -13,21 +14,28 @@ export class FormarrayexComponent implements OnInit {
 
   public ngOnInit(): void {
     this.employeeForm = new FormGroup({
-      firstname:new FormControl(''),
-      lastname:new FormControl(''),
-      email:new FormControl(''),
+      firstname:new FormControl('',[Validators.required,Validators.minLength(6)]),
+      lastname:new FormControl('',Validators.minLength(4)),
+      email:new FormControl('',Validators.email),
       skills: new FormArray([
         new FormControl('')
       ])
     })
     
   }
+  get skills(){
+    return this.employeeForm.get('skills') as FormArray
+  }
+
+  addSkill(){
+    this.skills.push(new FormControl(''))
+}
+
+remove(i:number){
+  this.skills.removeAt(i)
+}
   submit(){
     console.log(this.employeeForm.value);
-    
+    }
+
   }
-   
-  addSkill(){
-  (<FormArray> this.employeeForm.get('skills')).push(new FormControl)
-  }
-}
