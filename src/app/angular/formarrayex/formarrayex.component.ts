@@ -27,14 +27,15 @@ export class FormarrayexComponent implements OnInit {
     return this.employeeForm.get('skills') as FormArray
   }
 
-  addSkill(){
+  public addSkill(){
     this.skills.push(new FormControl(''))
 }
 
-remove(i:number){
+public remove(i:number){
   this.skills.removeAt(i)
 }
-  submit(){
+  
+public submit(){
     console.log(this.employeeForm.value);
     }
 

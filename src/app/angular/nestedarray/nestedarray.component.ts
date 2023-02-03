@@ -11,7 +11,7 @@ export class NestedarrayComponent implements OnInit {
   profileForm :  FormGroup;
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.profileForm = new FormGroup({
       Firstname : new FormControl(''),
       Lastname:new FormControl(''),
@@ -24,12 +24,12 @@ export class NestedarrayComponent implements OnInit {
     })
 
   }
-  submit(){
+  public submit(){
     console.log(this.profileForm.value);
     
   }
 
-  updateProfile(){
+  public updateProfile(){
     this.profileForm.patchValue({
       Firstname:'Merlins',
       Address:{

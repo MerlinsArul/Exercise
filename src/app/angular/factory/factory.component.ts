@@ -20,43 +20,60 @@ export class FactoryComponent implements OnInit {
   public ngOnInit(): void {
 
     // Subject
+    this.subservice.sub.next(10) // It won't execute
 
     this.subservice.sub.subscribe(x => {
-      console.log('From message 1', x)
+      console.log('From message Subject', x)
       this.fromsub = x
     })
     this.subservice.sub.next(200);
 
     this.subservice.sub.subscribe(x => {
-      console.log('From message 1 after next', x)
+      console.log('From message Subject ', x)
       this.fromsub = x
     })
-    this.subservice.sub.next(20);
+     this.subservice.sub.next(20);
 
     // Behaviour Subject
 
+    this.subservice.behSub.next(30)  // It will execute
+
     this.subservice.behSub.subscribe(y => {
-      console.log('From message 2', y)
+      console.log('From message Behaviour Subject', y)
       this.fromsub2 = y
     })
 
     this.subservice.behSub.next(100);
 
     this.subservice.behSub.subscribe(y => {
-      console.log('From message 2', y)
+      console.log('From message Behaviour Subject', y)
       this.fromsub2 = y
 
     })
 
+    //Replay Subject
+    this.subservice.reSub.next(500)
+
+    this.subservice.reSub.subscribe(z => {
+      console.log('From message 1 Replay', z);
+      this.fromsub = z
+    })
+    this.subservice.reSub.next(1000);
+    this.subservice.reSub.subscribe(z => {
+      console.log('From message 1 Replay', z);
+      this.fromsub = z
+    })
+    this.subservice.reSub.next(2000);
+
 
   }
-  show() {
+  public show() {
     this.messageservice.message();
   }
-  emit1() {
+  public emit1() {
     this.subservice.sendata(Math.random())
   }
-  emit2() {
+  public emit2() {
     this.subservice.sendata2(Math.random())
   }
 

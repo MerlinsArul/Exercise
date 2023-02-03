@@ -17,12 +17,12 @@ export class ChildComponent implements OnInit {
   constructor(@Optional() @Host() private diservice?: DidecoService) { }
   // @SkipSelf() private server:DidecoService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
 
     this.diservice?.msg(`For Child Component ${this.id} message  is received`)
   }
 
-  msg() {
+  public msg() {
     //this.server.msg(`For Child Component ${this.id} logging`)
   }
 

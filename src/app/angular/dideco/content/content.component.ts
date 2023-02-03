@@ -11,7 +11,7 @@ export class ContentComponent implements OnInit {
 
   constructor(private diservice: DidecoService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.diservice.msg('The Content Component')
   }
 
